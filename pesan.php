@@ -106,25 +106,13 @@
                             <div class="menu-grid">
                                 <?php while ($menu = $result->fetch_assoc()): ?>
                                     <div class="menu-card">
-                                        <img src="assets/img/steak.jpg" alt="steak">
-                                        <h4>Steak</h4>
-                                        <p>Daging yang melimpah</p>
-                                        <strong>Rp 45000</strong>
+                                        <img src="assets/img/<?php echo $menu['gambar']; ?>" alt="<?php echo $menu['nama_menu']; ?>">
+                                        <h4><?php echo $menu['nama_menu']; ?></h4>
+                                        <p><?php echo $menu['deskripsi']; ?></p>
+                                        <strong>Rp <?php echo number_format($menu['harga'], 0, ',', '.'); ?></strong>
                                         <form method="POST" action="keranjang.php">
-                                            <input type="hidden" name="id_menu" value="1">
-                                            <input type="number" name="jumlah" value="0" min="0">
-                                            <button type="submit" name="tambah">+ Tambah ke Keranjang</button>
-                                        </form>
-                                    </div>
-
-                                    <div class="menu-card">
-                                        <img src="assets/img/nasi goreng spesial.jpg" alt="nasi goreng spesial">
-                                        <h4>nasi goreng spesial</h4>
-                                        <p>Daging yang melimpah</p>
-                                        <strong>Rp 12000</strong>
-                                        <form method="POST" action="keranjang.php">
-                                            <input type="hidden" name="id_menu" value="2">
-                                            <input type="number" name="jumlah" value="0" min="0">
+                                            <input type="hidden" name="id_menu" value="<?php echo $menu['id_menu']; ?>">
+                                            <input type="number" name="jumlah" value="1" min="1">
                                             <button type="submit" name="tambah">+ Tambah ke Keranjang</button>
                                         </form>
                                     </div>
